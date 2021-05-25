@@ -1,0 +1,180 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SU_GatherRequiredFiles" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="DictFiles" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="DictConfig" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="ItemID" Type="InArgument(x:String)" />
+    <x:Property Name="MarkerFiles" Type="InArgument(s:String[])" />
+    <x:Property Name="PathLocalInProgress" Type="OutArgument(x:String)" />
+    <x:Property Name="PathTemplatesFolder" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:SU_GatherRequiredFiles.MarkerFiles>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:SU_GatherRequiredFiles.MarkerFiles>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>666,2096</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="22">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SU_GatherRequiredFiles" sap:VirtualizedContainerService.HintSize="646,1996" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="flagFolderExist" />
+      <Variable x:TypeArguments="x:String" Name="pathTemplatesRepository" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign local in-progress folder" sap:VirtualizedContainerService.HintSize="604,59" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[PathLocalInProgress]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Path.Combine(DictConfig("PathTemp"),DictConfig("InProgressDocumentsFolderName"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:PathExists DisplayName="Check if folder exist for this itemID" Exists="[flagFolderExist]" sap:VirtualizedContainerService.HintSize="604,88" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(PathLocalInProgress, ItemID)]" PathType="Folder" />
+    <If Condition="[not flagFolderExist]" DisplayName="Create itemID folder if doesnt exist" sap:VirtualizedContainerService.HintSize="604,334" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create itemID inProgress folder" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[path.Combine(PathLocalInProgress, ItemID)]" />
+      </If.Then>
+      <If.Else>
+        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Remove all files from itemID folder" sap:VirtualizedContainerService.HintSize="302,191" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(Path.Combine(PathLocalInProgress, ItemID))]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:String">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+              </ActivityAction.Argument>
+              <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[file]" />
+            </ActivityAction>
+          </ui:ForEach.Body>
+        </ui:ForEach>
+      </If.Else>
+    </If>
+    <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="Move al Word templates to local in-progress folder" sap:VirtualizedContainerService.HintSize="604,1303" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[DictFiles]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="templateWord" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Process files" sap:VirtualizedContainerService.HintSize="568,1172" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="pathCurrentFile" />
+              <Variable x:TypeArguments="x:String" Name="pathFinalPath" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[MarkerFiles.Contains(templateWord.value)]" DisplayName="Skip renaming/deleting values" sap:VirtualizedContainerService.HintSize="526,203" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <ui:Continue DisplayName="Check next file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
+              </If.Then>
+            </If>
+            <Sequence DisplayName="Copy" sap:VirtualizedContainerService.HintSize="526,710" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="flagFileExist" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign copy from" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[pathCurrentFile]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Path.Combine(PathTemplatesFolder,templateWord.Value)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:PathExists DisplayName="Path Exists" Exists="[flagFileExist]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[pathCurrentFile]" PathType="File" />
+              <If Condition="[Not flagFileExist]" DisplayName="Error if not exist" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="If_5">
+                <If.Then>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="[B0060] Word template not available" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SUPPORT\SU_CreateThrowCustomException.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="ErrorCode">B0060</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ErrorDescription">["Provided Word template for '" &amp; templateWord.Value &amp; "' is not available here '" &amp; pathCurrentFile &amp; "'"]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </If.Then>
+              </If>
+              <Assign DisplayName="Assign copy to" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[pathFinalPath]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Path.Combine(PathLocalInProgress,ItemID, templateWord.Value)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:CopyFile ContinueOnError="{x:Null}" Destination="[pathFinalPath]" DisplayName="Copy File to itemID folder" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[pathCurrentFile]" />
+            </Sequence>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Log copied file" sap:VirtualizedContainerService.HintSize="526,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="FRAMEWORK\SU_Logging.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="ItemId" />
+                <InArgument x:TypeArguments="x:String" x:Key="ItemTrace">[string.Format("File {0} moved to {1} folder", Path.GetFileName(templateWord.Value), ItemID)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ExceptionCode" />
+                <InArgument x:TypeArguments="x:String" x:Key="ExceptionDescription" />
+                <InArgument x:TypeArguments="s:DateTime" x:Key="StartTime" />
+                <InArgument x:TypeArguments="s:Exception" x:Key="Exception" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

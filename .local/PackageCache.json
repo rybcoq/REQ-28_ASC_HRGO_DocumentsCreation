@@ -1,0 +1,134 @@
+{
+  "Packages": [
+    {
+      "Package": {
+        "Id": "Microsoft.Activities.Extensions",
+        "Version": "2.0.6.9"
+      },
+      "Assemblies": [
+        "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions/2.0.6.9\\lib/Net45/Microsoft.Activities.Extensions.Design.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions/2.0.6.9\\lib/Net45/Microsoft.Activities.Extensions.dll"
+      ],
+      "Path": "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Credentials.Activities",
+        "Version": "[1.1.6479.13204]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Excel.Activities",
+        "Version": "[2.4.6884.25683]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Mail.Activities",
+        "Version": "[1.2.6863.29868]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.System.Activities",
+        "Version": "[18.4.1]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.UIAutomation.Activities",
+        "Version": "[18.4.2]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.WebAPI.Activities",
+        "Version": "[1.2.6863.33980]"
+      },
+      "Assemblies": [],
+      "Path": null
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Word.Activities",
+        "Version": "1.3.4"
+      },
+      "Assemblies": [
+        "C:\\Users\\A0781841\\.nuget\\packages\\docx/1.0.0.18\\lib/net40/DocX.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities/1.3.4\\lib/net452/UiPath.Word.Activities.Design.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities/1.3.4\\lib/net452/UiPath.Word.Activities.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities/1.3.4\\lib/net452/UiPath.Word.dll"
+      ],
+      "Path": "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities\\1.3.4"
+    }
+  ],
+  "Conflicts": [],
+  "ResolvedDependencies": {
+    "DocX": {
+      "Id": "DocX",
+      "Version": "1.0.0.18",
+      "Dependencies": []
+    },
+    "Microsoft.Activities.Extensions": {
+      "Id": "Microsoft.Activities.Extensions",
+      "Version": "2.0.6.9",
+      "Dependencies": []
+    },
+    "UiPath.Word.Activities": {
+      "Id": "UiPath.Word.Activities",
+      "Version": "1.3.4",
+      "Dependencies": [
+        {
+          "Item1": "DocX",
+          "Item2": "[1.0.0.18, )"
+        }
+      ]
+    }
+  },
+  "AllPackages": [
+    {
+      "Package": {
+        "Id": "DocX",
+        "Version": "1.0.0.18"
+      },
+      "Assemblies": [
+        "C:\\Users\\A0781841\\.nuget\\packages\\docx\\1.0.0.18\\lib\\net40\\DocX.dll"
+      ],
+      "Path": "C:\\Users\\A0781841\\.nuget\\packages\\docx\\1.0.0.18"
+    },
+    {
+      "Package": {
+        "Id": "Microsoft.Activities.Extensions",
+        "Version": "2.0.6.9"
+      },
+      "Assemblies": [
+        "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9\\lib\\Net45\\Microsoft.Activities.Extensions.Design.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9\\lib\\Net45\\Microsoft.Activities.Extensions.dll"
+      ],
+      "Path": "C:\\Users\\A0781841\\.nuget\\packages\\microsoft.activities.extensions\\2.0.6.9"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Word.Activities",
+        "Version": "1.3.4"
+      },
+      "Assemblies": [
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities\\1.3.4\\lib\\net452\\UiPath.Word.Activities.Design.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities\\1.3.4\\lib\\net452\\UiPath.Word.Activities.dll",
+        "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities\\1.3.4\\lib\\net452\\UiPath.Word.dll"
+      ],
+      "Path": "C:\\Users\\A0781841\\.nuget\\packages\\uipath.word.activities\\1.3.4"
+    }
+  ]
+}
