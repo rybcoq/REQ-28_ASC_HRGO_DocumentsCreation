@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="662,886" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="989,851" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -24,6 +24,8 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -53,6 +55,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID1}" DisplayName="State machine" sap:VirtualizedContainerService.HintSize="642,786" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -500,9 +503,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[flagStop=false]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Process transaction data. Set success or error status. Log execution message." DisplayName="Process transaction state" sap:VirtualizedContainerService.HintSize="502,2101" sap2010:WorkflowViewState.IdRef="State_4">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Process transaction data. Set success or error status. Log execution message." DisplayName="Process transaction state" sap:VirtualizedContainerService.HintSize="769,3335" sap2010:WorkflowViewState.IdRef="State_4">
                       <State.Entry>
-                        <TryCatch DisplayName="TC process transaction" sap:VirtualizedContainerService.HintSize="456,1687" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="TC process transaction" sap:VirtualizedContainerService.HintSize="723,2917" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <TryCatch.Variables>
                             <Variable x:TypeArguments="x:String" Name="teamName" />
                             <Variable x:TypeArguments="x:String" Name="countryName" />
@@ -637,10 +640,10 @@
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="689,2755" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -648,7 +651,7 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Catch processing error" sap:VirtualizedContainerService.HintSize="683,2230" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <Sequence DisplayName="Catch processing error" sap:VirtualizedContainerService.HintSize="683,2686" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="errorCode" />
                                   </Sequence.Variables>
@@ -665,7 +668,7 @@
                                       <InArgument x:TypeArguments="x:Int32">[transactionItem.RetryNo]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <Assign DisplayName="Assign processing exception" sap:VirtualizedContainerService.HintSize="641,59" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                  <Assign DisplayName="Assign processing exception" sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_18">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="s:Exception">[exceptionProcessing]</OutArgument>
                                     </Assign.To>
@@ -675,20 +678,42 @@
                                   </Assign>
                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Handle processing error" sap:VirtualizedContainerService.HintSize="641,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="FRAMEWORK\SU_CatchProcessingError.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="x:Boolean" x:Key="FlagSendMail">True</InArgument>
-                                      <InArgument x:TypeArguments="x:Boolean" x:Key="FlagTakeScreenshot">False</InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="PathTemp">[dictConfig("PathTemp")]</InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="ProcessName">[processName]</InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddress">[transactionItem.SpecificContent("HRGOAgent").ToString]</InArgument>
-                                      <InArgument x:TypeArguments="x:Int32" x:Key="RetryNumber">[retryNumber]</InArgument>
-                                      <InArgument x:TypeArguments="x:Int32" x:Key="RetryNotificationThreshold">[int32.Parse(dictConfig("RetryLimitMailBusiness"))]</InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddressCc" />
-                                      <InArgument x:TypeArguments="s:Exception" x:Key="ExceptionArgument">[exception]</InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="ItemId">[itemId]</InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DictConfig">[dictConfig]</InArgument>
+                                      <InArgument x:TypeArguments="x:Boolean" x:Key="FlagSendMail">
+                                        <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Boolean" x:Key="FlagTakeScreenshot">
+                                        <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="PathTemp">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;PathTemp&quot;)" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="ProcessName">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="processName" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddress">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="transactionItem.SpecificContent(&quot;HRGOAgent&quot;).ToString" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Int32" x:Key="RetryNumber">
+                                        <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="retryNumber" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Int32" x:Key="RetryNotificationThreshold">
+                                        <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="int32.Parse(dictConfig(&quot;RetryLimitMailBusiness&quot;))" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddressCc">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;OperatorMail&quot;)" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="s:Exception" x:Key="ExceptionArgument">
+                                        <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="ItemId">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="itemId" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DictConfig">
+                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="dictConfig" />
+                                      </InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <If Condition="[exception.GetType = GetType(UiPath.Core.BusinessRuleException)]" DisplayName="get error code" sap:VirtualizedContainerService.HintSize="641,230" sap2010:WorkflowViewState.IdRef="If_10">
+                                  <If Condition="[exception.GetType = GetType(UiPath.Core.BusinessRuleException)]" DisplayName="get error code" sap:VirtualizedContainerService.HintSize="641,245" sap2010:WorkflowViewState.IdRef="If_10">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -706,7 +731,7 @@
                                       </ui:InvokeWorkflowFile>
                                     </If.Then>
                                     <If.Else>
-                                      <Assign DisplayName="Assign default error code" sap:VirtualizedContainerService.HintSize="262,59" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                      <Assign DisplayName="Assign default error code" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_22">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[errorCode]</OutArgument>
                                         </Assign.To>
@@ -716,7 +741,7 @@
                                       </Assign>
                                     </If.Else>
                                   </If>
-                                  <Sequence DisplayName="If reset environment" sap:VirtualizedContainerService.HintSize="641,873" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                  <Sequence DisplayName="If reset environment" sap:VirtualizedContainerService.HintSize="641,1305" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="sd:DataTable" Name="dtCodesReset" />
                                     </Sequence.Variables>
@@ -726,35 +751,35 @@
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="For specific codes" sap:VirtualizedContainerService.HintSize="576,692" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                    <Sequence DisplayName="For specific codes" sap:VirtualizedContainerService.HintSize="576,730" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:BuildDataTable sap2010:Annotation.AnnotationText="put here error codes after which you want to reset environment" DataTable="[dtCodesReset]" DisplayName="Build reset data table" sap:VirtualizedContainerService.HintSize="534,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Code&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Code&gt;S0010&lt;/Code&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
+                                      <ui:BuildDataTable sap2010:Annotation.AnnotationText="put here error codes after which you want to reset environment" DataTable="[dtCodesReset]" DisplayName="Build reset data table" sap:VirtualizedContainerService.HintSize="534,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Code&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Code&gt;S0010&lt;/Code&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Code&gt;S0008&lt;/Code&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:BuildDataTable>
-                                      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtCodesReset]" DisplayName="For each reset code" sap:VirtualizedContainerService.HintSize="534,501" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                                      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtCodesReset]" DisplayName="For each reset code" sap:VirtualizedContainerService.HintSize="534,539" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                                         <ui:ForEachRow.Body>
                                           <ActivityAction x:TypeArguments="sd:DataRow">
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                             </ActivityAction.Argument>
-                                            <If Condition="[row(&quot;Code&quot;).ToString = errorCode]" DisplayName="If code matches" sap:VirtualizedContainerService.HintSize="484,356" sap2010:WorkflowViewState.IdRef="If_7">
+                                            <If Condition="[row(&quot;Code&quot;).ToString = errorCode]" DisplayName="If code matches" sap:VirtualizedContainerService.HintSize="484,391" sap2010:WorkflowViewState.IdRef="If_7">
                                               <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="304,213" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <Assign DisplayName="Assign reset true" sap:VirtualizedContainerService.HintSize="262,59" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                  <Assign DisplayName="Assign reset true" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                                                     <Assign.To>
                                                       <OutArgument x:TypeArguments="x:Boolean">[flagReset]</OutArgument>
                                                     </Assign.To>
@@ -776,60 +801,43 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:ForEachRow>
                                     </Sequence>
-                                    <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="576,49" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                                      <ui:CommentOut.Body>
-                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="568,501" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <Sequence DisplayName="For every system error" sap:VirtualizedContainerService.HintSize="526,409" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <ui:Comment sap:VirtualizedContainerService.HintSize="484,74" sap2010:WorkflowViewState.IdRef="Comment_6" Text="Use this sequence if you want to reset environment for every system error" />
-                                            <If Condition="[Left(errorCode, 1) = &quot;S&quot;]" DisplayName="If system error" sap:VirtualizedContainerService.HintSize="484,203" sap2010:WorkflowViewState.IdRef="If_13">
-                                              <If.Then>
-                                                <Assign DisplayName="Assign reset true" sap:VirtualizedContainerService.HintSize="262,59" sap2010:WorkflowViewState.IdRef="Assign_30">
-                                                  <Assign.To>
-                                                    <OutArgument x:TypeArguments="x:Boolean">[flagReset]</OutArgument>
-                                                  </Assign.To>
-                                                  <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                                  </Assign.Value>
-                                                </Assign>
-                                              </If.Then>
-                                            </If>
-                                          </Sequence>
-                                        </Sequence>
-                                      </ui:CommentOut.Body>
+                                    <Sequence DisplayName="For every system error" sap:VirtualizedContainerService.HintSize="576,443" sap2010:WorkflowViewState.IdRef="Sequence_35">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                    </ui:CommentOut>
+                                      <ui:Comment sap:VirtualizedContainerService.HintSize="484,74" sap2010:WorkflowViewState.IdRef="Comment_6" Text="Use this sequence if you want to reset environment for every system error" />
+                                      <If Condition="[Left(errorCode, 1) = &quot;S&quot;]" DisplayName="If system error" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_13">
+                                        <If.Then>
+                                          <Assign DisplayName="Assign reset true" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[flagReset]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Then>
+                                      </If>
+                                    </Sequence>
                                   </Sequence>
-                                  <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="641,533" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                  <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="641,537" sap2010:WorkflowViewState.IdRef="CommentOut_4">
                                     <ui:CommentOut.Body>
-                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,455" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,459" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <Sequence DisplayName="If retry" sap:VirtualizedContainerService.HintSize="376,363" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                        <Sequence DisplayName="If retry" sap:VirtualizedContainerService.HintSize="376,367" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <ui:Comment sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="Comment_3" Text="This section should be used only when working without Orchestrator queues (items processed are not queue items)" />
-                                          <If sap2010:Annotation.AnnotationText="Very generic approach, adjust further if needed" Condition="[Left(errorCode, 1) = &quot;B&quot;]" DisplayName="If business exception" sap:VirtualizedContainerService.HintSize="334,49" sap2010:WorkflowViewState.IdRef="If_11">
+                                          <If sap2010:Annotation.AnnotationText="Very generic approach, adjust further if needed" Condition="[Left(errorCode, 1) = &quot;B&quot;]" DisplayName="If business exception" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_11">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -858,15 +866,15 @@
                                               </Assign>
                                             </If.Else>
                                           </If>
-                                          <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="334,49" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                          <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                             <ui:CommentOut.Body>
-                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,427" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,459" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Sequence DisplayName="Retry particular error codes" sap:VirtualizedContainerService.HintSize="376,335" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                <Sequence DisplayName="Retry particular error codes" sap:VirtualizedContainerService.HintSize="556,337" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                                   <Sequence.Variables>
                                                     <Variable x:TypeArguments="sd:DataTable" Name="dtCodesReset" />
                                                     <Variable x:TypeArguments="sd:DataTable" Name="dtCodesRetry" />
@@ -885,7 +893,7 @@
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
                                                   </ui:BuildDataTable>
-                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtCodesRetry]" DisplayName="For each retry code" sap:VirtualizedContainerService.HintSize="334,49" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtCodesRetry]" DisplayName="For each retry code" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                                     <ui:ForEachRow.Body>
                                                       <ActivityAction x:TypeArguments="sd:DataRow">
                                                         <ActivityAction.Argument>
@@ -934,7 +942,7 @@
                                       </Sequence>
                                     </ui:CommentOut.Body>
                                   </ui:CommentOut>
-                                  <Assign DisplayName="Assign flag processing error" sap:VirtualizedContainerService.HintSize="641,59" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign DisplayName="Assign flag processing error" sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_12">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Boolean">[flagProcessingErrorEncountered]</OutArgument>
                                     </Assign.To>
