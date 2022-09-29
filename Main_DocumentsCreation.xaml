@@ -55,7 +55,6 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID1}" DisplayName="State machine" sap:VirtualizedContainerService.HintSize="642,786" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -519,7 +518,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Try process transaction" sap:VirtualizedContainerService.HintSize="418,1460" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <Sequence DisplayName="Try process transaction" sap:VirtualizedContainerService.HintSize="418,1492" sap2010:WorkflowViewState.IdRef="Sequence_9">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -682,7 +681,7 @@
                                         <Literal x:TypeArguments="x:Boolean" Value="True" />
                                       </InArgument>
                                       <InArgument x:TypeArguments="x:Boolean" x:Key="FlagTakeScreenshot">
-                                        <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                        <Literal x:TypeArguments="x:Boolean" />
                                       </InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="PathTemp">
                                         <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;PathTemp&quot;)" />
@@ -699,9 +698,7 @@
                                       <InArgument x:TypeArguments="x:Int32" x:Key="RetryNotificationThreshold">
                                         <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="int32.Parse(dictConfig(&quot;RetryLimitMailBusiness&quot;))" />
                                       </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddressCc">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;OperatorMail&quot;)" />
-                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="MailAddressCc" />
                                       <InArgument x:TypeArguments="s:Exception" x:Key="ExceptionArgument">
                                         <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" />
                                       </InArgument>
@@ -758,7 +755,7 @@
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:BuildDataTable sap2010:Annotation.AnnotationText="put here error codes after which you want to reset environment" DataTable="[dtCodesReset]" DisplayName="Build reset data table" sap:VirtualizedContainerService.HintSize="534,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Code&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Code&gt;S0010&lt;/Code&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Code&gt;S0008&lt;/Code&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                                      <ui:BuildDataTable sap2010:Annotation.AnnotationText="put here error codes after which you want to reset environment" DataTable="[dtCodesReset]" DisplayName="Build reset data table" sap:VirtualizedContainerService.HintSize="534,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Code&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Code&gt;S0010&lt;/Code&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Code&gt;S0008&lt;/Code&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
